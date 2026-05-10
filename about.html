@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Binalonan | Municipal Government</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green: #1a4731;
+            --gold: #c9a84c;
+            --cream: #f8f4ec;
+            --dark: #111;
+            --mid: #3a3a3a;
+            --light-gold: #e8d49a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: var(--cream);
+            color: var(--mid);
+        }
+
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 48px;
+            background: rgba(26, 71, 49, 0.96);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(201,168,76,0.3);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--gold);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            letter-spacing: 0.03em;
+        }
+
+        .logo img { height: 40px; width: 40px; object-fit: contain; }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 1.20rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-weight: 700;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active { color: var(--gold); }
+
+        .about-hero {
+            margin-top: 76px;
+            height: 420px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(26,71,49,0.88) 0%, rgba(17,17,17,0.55) 100%);
+            z-index: 1;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: url('Image/binalonan municipal hall.jpg') center/cover no-repeat;
+            transform: scale(1.06);
+            animation: slowzoom 12s ease-in-out infinite alternate;
+        }
+
+        @keyframes slowzoom {
+            from { transform: scale(1.06); }
+            to   { transform: scale(1.14); }
+        }
+
+        .about-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: #fff;
+        }
+
+        .about-hero-content .eyebrow {
+            display: inline-block;
+            font-size: 0.75rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 700;
+            margin-bottom: 16px;
+            border: 1px solid rgba(201,168,76,0.5);
+            padding: 5px 18px;
+            border-radius: 2px;
+        }
+
+        .about-hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.8rem, 6vw, 5rem);
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -0.01em;
+        }
+
+        .about-hero-content h1 span { color: var(--gold); }
+
+        .gold-line {
+            width: 80px;
+            height: 3px;
+            background: var(--gold);
+            margin: 24px auto 0;
+            border-radius: 2px;
+        }
+
+        .about-body {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 80px 32px 100px;
+        }
+
+        .intro-block {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+            margin-bottom: 90px;
+        }
+
+        .intro-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--green);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .intro-text p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 14px;
+        }
+
+        .intro-img {
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 24px 60px rgba(0,0,0,0.15);
+            position: relative;
+        }
+
+        .intro-img::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            right: -12px;
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--gold);
+            border-radius: 4px;
+            z-index: -1;
+        }
+
+        .intro-img img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2px;
+            margin-bottom: 90px;
+            background: var(--gold);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .stat-item {
+            background: var(--green);
+            padding: 32px 20px;
+            text-align: center;
+            color: #fff;
+            transition: background 0.25s;
+        }
+
+        .stat-item:hover { background: #22593e; }
+
+        .stat-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.6rem;
+            font-weight: 900;
+            color: var(--gold);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.78rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-top: 8px;
+            opacity: 0.8;
+        }
+
+        .cards-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            margin-bottom: 90px;
+        }
+
+        .about-card {
+            background: #fff;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .about-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.12);
+        }
+
+        .about-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .about-card-body {
+            padding: 28px 24px;
+            border-top: 3px solid var(--gold);
+        }
+
+        .about-card-body .icon {
+            font-size: 1.5rem;
+            color: var(--green);
+            margin-bottom: 12px;
+        }
+
+        .about-card-body h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--green);
+            margin-bottom: 10px;
+        }
+
+        .about-card-body p {
+            font-size: 0.93rem;
+            line-height: 1.7;
+            color: #666;
+        }
+
+        .officials-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--green);
+            margin-bottom: 10px;
+        }
+
+        .officials-section .subtitle {
+            font-size: 0.9rem;
+            color: #888;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+        }
+
+        .councilors-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--green);
+            text-align: center;
+            margin: 40px 0 24px;
+            padding-top: 32px;
+            border-top: 2px solid rgba(201,168,76,0.25);
+        }
+
+        .officials-top {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .officials-councilors {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .official-card { text-align: center; }
+
+        .official-avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: var(--green);
+            margin: 0 auto 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--gold);
+            border: 3px solid var(--gold);
+        }
+
+        .official-avatar--sm {
+            width: 66px;
+            height: 66px;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .official-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.95rem;
+            color: var(--green);
+            line-height: 1.3;
+        }
+
+        .official-card p {
+            font-size: 0.75rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 4px;
+        }
+
+         footer {
+            background: var(--green);
+            color: #fff;
+            padding: 60px 0 0;
+            margin-top: 80px;
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 32px 48px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-brand .logo { margin-bottom: 14px; display: inline-flex; }
+        .footer-brand p { font-size: 0.88rem; line-height: 1.8; opacity: 0.6; max-width: 260px; margin-top: 12px; }
+
+        .footer-col h4 {
+            font-size: 0.72rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col ul li a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
+        .footer-col ul li a:hover { color: var(--gold); }
+
+        .footer-col .contact-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; font-size: 0.88rem; opacity: 0.7; }
+        .footer-col .contact-item i { color: var(--gold); margin-top: 3px; font-size: 0.85rem; flex-shrink: 0; }
+
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .footer-bottom p { font-size: 0.8rem; opacity: 0.5; }
+
+        .page-footer {
+            background: var(--green);
+            color: #fff;
+            text-align: center;
+            padding: 28px;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .page-footer a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .footer-social { display: flex; gap: 14px; }
+        .footer-social a {
+            width: 36px; height: 36px; border-radius: 50%;
+            border: 1px solid rgba(201,168,76,0.4);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--gold); font-size: 0.85rem; text-decoration: none;
+            transition: background 0.2s;
+        }
+        .footer-social a:hover { background: rgba(201,168,76,0.15); }
+
+        @media (max-width: 900px) {
+            nav { padding: 14px 20px; }
+            .nav-links { display: none; }
+            .contact-layout { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .contact-form-wrap { padding: 32px 24px; }
+            .page-body { padding: 48px 20px 60px; }
+            .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">
+            <img src="Image/BinalonanLogo.png" alt="Binalonan Logo">
+            <span>Binalonan</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="about-hero">
+        <div class="hero-bg"></div>
+        <div class="about-hero-content">
+            <div class="eyebrow">Municipality of Pangasinan</div>
+            <h1>About <span>Binalonan</span></h1>
+            <div class="gold-line"></div>
+        </div>
+    </section>
+
+    <div class="about-body">
+
+        <div class="intro-block">
+            <div class="intro-text">
+                <h2>A Community of Heritage &amp; Progress</h2>
+                <p>
+                    Binalonan is a <strong>1st class municipality</strong> in the province of Pangasinan, Philippines.
+                    Known for its rich history, vibrant culture, and progressive development, it stands as one of
+                    the most dynamic municipalities in Eastern Pangasinan.
+                </p>
+                <p>
+                    The municipality is the birthplace of <strong>Carlos Bulosan</strong>, a celebrated Filipino-American
+                    author and labor activist, whose legacy continues to inspire the community's values of dignity,
+                    resilience, and progress.
+                </p>
+                <p>
+                    With a growing economy anchored in agriculture, trade, and emerging industries, Binalonan
+                    is well on its way to becoming a model of sustainable local governance in the region.
+                </p>
+            </div>
+            <div class="intro-img">
+                <img src="Image/binalonan municipal hall.jpg" alt="Binalonan Municipal Hall">
+            </div>
+        </div>
+
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-num">24</div>
+                <div class="stat-label">Barangays</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num">56K+</div>
+                <div class="stat-label">Population</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num">1st</div>
+                <div class="stat-label">Income Class</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num">1834</div>
+                <div class="stat-label">Year Founded</div>
+            </div>
+        </div>
+
+        <div class="cards-row">
+            <div class="about-card">
+                <img src="Image/carlosbulosan.jpg" alt="Our History">
+                <div class="about-card-body">
+                    <div class="icon"><i class="fas fa-landmark"></i></div>
+                    <h3>Our History</h3>
+                    <p>Discover the rich heritage of Binalonan — from its founding in the 19th century
+                    to its modern growth as a thriving municipality.</p>
+                </div>
+            </div>
+            <div class="about-card">
+                <img src="Image/people.jpg" alt="Our People">
+                <div class="about-card-body">
+                    <div class="icon"><i class="fas fa-users"></i></div>
+                    <h3>Our People</h3>
+                    <p>Meet the warm and welcoming Binalunanians whose industrious spirit and sense
+                    of community drive the municipality forward every day.</p>
+                </div>
+            </div>
+            <div class="about-card">
+                <img src="Image/Progress.jpg" alt="Our Progress">
+                <div class="about-card-body">
+                    <div class="icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Our Progress</h3>
+                    <p>See our achievements — from the first industrial park in Eastern Pangasinan
+                    to award-winning local governance and community programs.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="officials-section">
+            <h2>Municipal Officials of Binalonan</h2>
+            <p class="subtitle">2025–2028 Term</p>
+
+            <div class="officials-grid officials-top">
+                <div class="official-card">
+                    <div class="official-avatar"><i class="fas fa-user"></i></div>
+                    <h4>Hon. Ramon Ronald V. Guico IV</h4>
+                    <p>Municipal Mayor</p>
+                </div>
+                <div class="official-card">
+                    <div class="official-avatar"><i class="fas fa-user"></i></div>
+                    <h4>Hon. Bryan Louie R. Balangue</h4>
+                    <p>Vice Mayor</p>
+                </div>
+            </div>
+
+            <h3 class="councilors-title">Sangguniang Bayan Members</h3>
+            <div class="officials-grid officials-councilors">
+                <div class="official-card">
+                    <div class="official-avatar official-avatar--sm"><i class="fas fa-user"></i></div>
+                    <h4>William Aradanas</h4>
+                    <p>Councilor</p>
+                </div>
+                <div class="official-card">
+                    <div class="official-avatar official-avatar--sm"><i class="fas fa-user"></i></div>
+                    <h4>William Aradanas</h4>
+                    <p>Councilor</p>
+                </div>
+                <div class="official-card">
+                    <div class="official-avatar official-avatar--sm"><i class="fas fa-user"></i></div>
+                    <h4>Brenda Paderes</h4>
+                    <p>Councilor</p>
+                </div>
+                <div class="official-card">
+                    <div class="official-avatar official-avatar--sm"><i class="fas fa-user"></i></div>
+                    <h4>Carl Joseph Patawaran</h4>
+                    <p>Councilor</p>
+                </div>
+                <div class="official-card">
+                    <div class="official-avatar official-avatar--sm"><i class="fas fa-user"></i></div>
+                    <h4>Manny Luis Jr.</h4>
+                    <p>Councilor</p>
+                </div>
+                <div class="official-card">
+                    <div class="official-avatar official-avatar--sm"><i class="fas fa-user"></i></div>
+                    <h4>Butsoy Legaspi</h4>
+                    <p>Councilor</p>
+                </div>
+                <div class="official-card">
+                    <div class="official-avatar official-avatar--sm"><i class="fas fa-user"></i></div>
+                    <h4>Domingo Rivera Jr.</h4>
+                    <p>Councilor</p>
+                </div>
+                <div class="official-card">
+                    <div class="official-avatar official-avatar--sm"><i class="fas fa-user"></i></div>
+                    <h4>Glory Jovelyn Manaois</h4>
+                    <p>Councilor</p>
+                </div>
+                <div class="official-card">
+                    <div class="official-avatar official-avatar--sm"><i class="fas fa-user"></i></div>
+                    <h4>Arturo V. Romua</h4>
+                    <p>Councilor</p>
+                </div>
+                <div class="official-card">
+                    <div class="official-avatar official-avatar--sm"><i class="fas fa-user"></i></div>
+                    <h4>Rodelito R. Alibuyog</h4>
+                    <p>Liga ng mga Barangay President</p>
+                </div>
+                <div class="official-card">
+                    <div class="official-avatar official-avatar--sm"><i class="fas fa-user"></i></div>
+                    <h4>Christopher M. Gamueda</h4>
+                    <p>Sangguniang Kabataan President</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <img src="Image/BinalonanLogo.png" alt="Binalonan Logo">
+                    <span>Binalonan</span>
+                </a>
+                <p>Municipality of Binalonan, Pangasinan — serving our community with excellence, heritage, and progress since 1874.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navigate</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Mayor's Office</a></li>
+                    <li><a href="#">Barangays</a></li>
+                    <li><a href="#">Transparency Seal</a></li>
+                    <li><a href="#">Citizen's Charter</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>Municipal Hall, Poblacion, Binalonan, Pangasinan 2433</span></div>
+                <div class="contact-item"><i class="fas fa-phone-alt"></i><span>(075) 123-4567</span></div>
+                <div class="contact-item"><i class="fas fa-envelope"></i><span>info@binalonan.gov.ph</span></div>
+            </div>
+        </div>
+    </footer>
+    <div class="page-footer">
+        &copy; 2026 Municipality of Binalonan &nbsp;|&nbsp;
+        <a href="index.html">Back to Main Site</a>
+        &nbsp;|&nbsp;
+        <div class="footer-social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            this.style.display = 'none';
+            document.getElementById('successMsg').style.display = 'block';
+        });
+    </script>
+
+</body>
+</html>

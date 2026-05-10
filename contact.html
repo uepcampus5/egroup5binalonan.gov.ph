@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Binalonan Municipal Government</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green: #1a4731;
+            --gold: #c9a84c;
+            --cream: #f8f4ec;
+            --mid: #3a3a3a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: var(--cream);
+            color: var(--mid);
+        }
+
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 48px;
+            background: rgba(26,71,49,0.96);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(201,168,76,0.3);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--gold);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            letter-spacing: 0.03em;
+        }
+
+        .logo img { height: 40px; width: 40px; object-fit: contain; }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 1.20rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-weight: 700;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+
+        /* HERO */
+        .page-hero {
+            margin-top: 76px;
+            height: 360px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--green);
+        }
+
+        .hero-pattern {
+            position: absolute;
+            inset: 0;
+            background-image:
+                repeating-linear-gradient(45deg, rgba(201,168,76,0.05) 0px, rgba(201,168,76,0.05) 1px, transparent 1px, transparent 40px),
+                repeating-linear-gradient(-45deg, rgba(201,168,76,0.05) 0px, rgba(201,168,76,0.05) 1px, transparent 1px, transparent 40px);
+        }
+
+        .hero-bg-img {
+            position: absolute;
+            inset: 0;
+            background: url('Image/binalonan municipal hall.jpg') center/cover no-repeat;
+            opacity: 0.12;
+            animation: slowzoom 14s ease-in-out infinite alternate;
+        }
+
+        @keyframes slowzoom {
+            from { transform: scale(1.04); }
+            to   { transform: scale(1.12); }
+        }
+
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: #fff;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            font-size: 0.75rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 700;
+            margin-bottom: 16px;
+            border: 1px solid rgba(201,168,76,0.5);
+            padding: 5px 18px;
+            border-radius: 2px;
+        }
+
+        .page-hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        .page-hero-content h1 span { color: var(--gold); }
+
+        .gold-line {
+            width: 80px; height: 3px;
+            background: var(--gold);
+            margin: 24px auto 0;
+            border-radius: 2px;
+        }
+
+        /* PAGE BODY */
+        .page-body {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 80px 32px 100px;
+        }
+
+        /* TWO-COLUMN LAYOUT */
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 56px;
+            align-items: start;
+        }
+
+        /* INFO COLUMN */
+        .contact-info h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.7rem;
+            color: var(--green);
+            margin-bottom: 14px;
+        }
+
+        .contact-info > p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 36px;
+        }
+
+        .info-card {
+            background: var(--green);
+            border-radius: 4px;
+            padding: 32px 28px;
+            margin-bottom: 24px;
+        }
+
+        .info-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .info-item:last-child { border-bottom: none; padding-bottom: 0; }
+        .info-item:first-child { padding-top: 0; }
+
+        .info-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(201,168,76,0.15);
+            border: 1px solid rgba(201,168,76,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+
+        .info-text h4 {
+            color: var(--gold);
+            font-size: 0.72rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .info-text p {
+            color: rgba(255,255,255,0.75);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .office-hours {
+            background: #fff;
+            border-radius: 4px;
+            padding: 28px;
+            border-left: 4px solid var(--gold);
+        }
+
+        .office-hours h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--green);
+            font-size: 1rem;
+            margin-bottom: 14px;
+        }
+
+        .hours-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.88rem;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            color: #555;
+        }
+
+        .hours-row:last-child { border-bottom: none; }
+        .hours-row span:first-child { font-weight: 700; color: var(--green); }
+
+        .social-row {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .social-btn {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: var(--green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        .social-btn:hover { background: #22593e; }
+
+        /* FORM COLUMN */
+        .contact-form-wrap {
+            background: #fff;
+            border-radius: 6px;
+            padding: 48px 44px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+            border-top: 4px solid var(--gold);
+        }
+
+        .contact-form-wrap h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--green);
+            margin-bottom: 8px;
+        }
+
+        .contact-form-wrap > p {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 32px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--green);
+            margin-bottom: 8px;
+        }
+
+        .form-group label span {
+            color: var(--gold);
+            margin-left: 2px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1.5px solid #e0dbd0;
+            border-radius: 4px;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.95rem;
+            color: var(--mid);
+            background: var(--cream);
+            outline: none;
+            transition: border-color 0.2s, background 0.2s;
+            appearance: none;
+            -webkit-appearance: none;
+        }
+
+        .form-group select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231a4731' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            padding-right: 36px;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--gold);
+            background: #fff;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 130px;
+        }
+
+        .submit-btn {
+            display: inline-block;
+            background: var(--green);
+            color: #fff;
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 16px 40px;
+            border-radius: 2px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+            width: 100%;
+            margin-top: 8px;
+        }
+
+        .submit-btn:hover {
+            background: #22593e;
+            transform: translateY(-2px);
+        }
+
+        .submit-btn i { margin-right: 8px; }
+
+        .form-note {
+            font-size: 0.78rem;
+            color: #aaa;
+            text-align: center;
+            margin-top: 14px;
+        }
+
+        .success-message {
+            display: none;
+            background: rgba(26,71,49,0.08);
+            border: 1px solid rgba(26,71,49,0.25);
+            border-radius: 4px;
+            padding: 18px 20px;
+            text-align: center;
+            color: var(--green);
+            font-size: 0.92rem;
+            margin-top: 18px;
+        }
+
+        .success-message i { margin-right: 8px; color: var(--gold); }
+
+        footer {
+            background: var(--green);
+            color: #fff;
+            padding: 60px 0 0;
+            margin-top: 80px;
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 32px 48px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-brand .logo { margin-bottom: 14px; display: inline-flex; }
+        .footer-brand p { font-size: 0.88rem; line-height: 1.8; opacity: 0.6; max-width: 260px; margin-top: 12px; }
+
+        .footer-col h4 {
+            font-size: 0.72rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col ul li a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
+        .footer-col ul li a:hover { color: var(--gold); }
+
+        .footer-col .contact-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; font-size: 0.88rem; opacity: 0.7; }
+        .footer-col .contact-item i { color: var(--gold); margin-top: 3px; font-size: 0.85rem; flex-shrink: 0; }
+
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .footer-bottom p { font-size: 0.8rem; opacity: 0.5; }
+
+        .page-footer {
+            background: var(--green);
+            color: #fff;
+            text-align: center;
+            padding: 28px;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .page-footer a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .footer-social { display: flex; gap: 14px; }
+        .footer-social a {
+            width: 36px; height: 36px; border-radius: 50%;
+            border: 1px solid rgba(201,168,76,0.4);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--gold); font-size: 0.85rem; text-decoration: none;
+            transition: background 0.2s;
+        }
+        .footer-social a:hover { background: rgba(201,168,76,0.15); }
+
+        @media (max-width: 900px) {
+            nav { padding: 14px 20px; }
+            .nav-links { display: none; }
+            .contact-layout { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .contact-form-wrap { padding: 32px 24px; }
+            .page-body { padding: 48px 20px 60px; }
+            .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">
+            <img src="Image/BinalonanLogo.png" alt="Binalonan Logo">
+            <span>Binalonan</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="page-hero">
+        <div class="hero-pattern"></div>
+        <div class="hero-bg-img"></div>
+        <div class="page-hero-content">
+            <div class="eyebrow">Get in Touch</div>
+            <h1>Contact <span>Us</span></h1>
+            <div class="gold-line"></div>
+        </div>
+    </section>
+
+    <div class="page-body">
+
+        <div class="contact-layout">
+
+            <div class="contact-info">
+                <h2>We're Here to Help</h2>
+                <p>Have a question, concern, or request? Reach us through any of the channels below or send us a message using the form.</p>
+
+                <div class="info-card">
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="info-text">
+                            <h4>Address</h4>
+                            <p>Municipal Hall, Poblacion<br>Binalonan, Pangasinan 2433</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-phone-alt"></i></div>
+                        <div class="info-text">
+                            <h4>Phone</h4>
+                            <p>(075) 123-4567<br>(075) 123-4568</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="info-text">
+                            <h4>Email</h4>
+                            <p>info@binalonan.gov.ph<br>mayor@binalonan.gov.ph</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-fax"></i></div>
+                        <div class="info-text">
+                            <h4>Fax</h4>
+                            <p>(075) 632-1111</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="office-hours">
+                    <h4><i class="fas fa-clock" style="margin-right:8px;color:var(--gold);"></i>Office Hours</h4>
+                    <div class="hours-row"><span>Monday – Friday</span><span>8:00 AM – 5:00 PM</span></div>
+                    <div class="hours-row"><span>Saturday</span><span>Closed</span></div>
+                    <div class="hours-row"><span>Sunday</span><span>Closed</span></div>
+                    <div class="hours-row"><span>Public Holidays</span><span>Closed</span></div>
+                </div>
+
+            </div>
+
+            <div class="contact-form-wrap">
+                <h3>Send Us a Message</h3>
+                <p>Fill out the form and our team will get back to you within 1–2 business days.</p>
+
+                <form id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>First Name <span>*</span></label>
+                            <input type="text" placeholder="Juan" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name <span>*</span></label>
+                            <input type="text" placeholder="dela Cruz" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email Address <span>*</span></label>
+                        <input type="email" placeholder="juan@email.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" placeholder="+63 9XX XXX XXXX">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Barangay / Purok</label>
+                        <input type="text" placeholder="e.g. Brgy. Poblacion">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Concern / Department <span>*</span></label>
+                        <select required>
+                            <option value="" disabled selected>Select a concern...</option>
+                            <option>Civil Registry</option>
+                            <option>Business Permits &amp; Licensing</option>
+                            <option>Health Services</option>
+                            <option>Education &amp; Scholarships</option>
+                            <option>Social Welfare</option>
+                            <option>Infrastructure &amp; Public Works</option>
+                            <option>Mayor's Office</option>
+                            <option>General Inquiry</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Message <span>*</span></label>
+                        <textarea placeholder="Please describe your concern, request, or inquiry in detail..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                    <p class="form-note">All fields marked with <span style="color:var(--gold);">*</span> are required.</p>
+                </form>
+
+                <div class="success-message" id="successMsg">
+                    <i class="fas fa-check-circle"></i>
+                    Thank you! Your message has been sent. We will respond within 1–2 business days.
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <img src="Image/BinalonanLogo.png" alt="Binalonan Logo">
+                    <span>Binalonan</span>
+                </a>
+                <p>Municipality of Binalonan, Pangasinan — serving our community with excellence, heritage, and progress since 1874.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navigate</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Mayor's Office</a></li>
+                    <li><a href="#">Barangays</a></li>
+                    <li><a href="#">Transparency Seal</a></li>
+                    <li><a href="#">Citizen's Charter</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>Municipal Hall, Poblacion, Binalonan, Pangasinan 2433</span></div>
+                <div class="contact-item"><i class="fas fa-phone-alt"></i><span>(075) 123-4567</span></div>
+                <div class="contact-item"><i class="fas fa-envelope"></i><span>info@binalonan.gov.ph</span></div>
+            </div>
+        </div>
+    </footer>
+    <div class="page-footer">
+        &copy; 2026 Municipality of Binalonan &nbsp;|&nbsp;
+        <a href="index.html">Back to Main Site</a>
+        &nbsp;|&nbsp;
+        <div class="footer-social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            this.style.display = 'none';
+            document.getElementById('successMsg').style.display = 'block';
+        });
+    </script>
+</body>
+</html>

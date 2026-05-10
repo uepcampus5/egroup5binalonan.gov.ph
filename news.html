@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News & Updates | Binalonan Municipal Government</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green: #1a4731;
+            --gold: #c9a84c;
+            --cream: #f8f4ec;
+            --mid: #3a3a3a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: var(--cream);
+            color: var(--mid);
+        }
+
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 48px;
+            background: rgba(26,71,49,0.96);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(201,168,76,0.3);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--gold);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            letter-spacing: 0.03em;
+        }
+
+        .logo img { height: 40px; width: 40px; object-fit: contain; }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 1.20rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-weight: 700;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+
+        .page-hero {
+            margin-top: 76px;
+            height: 380px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-bg-img {
+            position: absolute;
+            inset: 0;
+            background: url('Image/foundation.jpg') center/cover no-repeat;
+            animation: slowzoom 14s ease-in-out infinite alternate;
+        }
+
+        @keyframes slowzoom {
+            from { transform: scale(1.04); }
+            to   { transform: scale(1.12); }
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(160deg, rgba(17,17,17,0.75) 0%, rgba(26,71,49,0.7) 100%);
+        }
+
+        .page-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: #fff;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            font-size: 0.75rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 700;
+            margin-bottom: 16px;
+            border: 1px solid rgba(201,168,76,0.5);
+            padding: 5px 18px;
+            border-radius: 2px;
+        }
+
+        .page-hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        .page-hero-content h1 span { color: var(--gold); }
+
+        .gold-line {
+            width: 80px; height: 3px;
+            background: var(--gold);
+            margin: 24px auto 0;
+            border-radius: 2px;
+        }
+
+        .page-body {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 80px 32px 100px;
+        }
+
+        .featured-article {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 0;
+            background: #fff;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.1);
+            margin-bottom: 60px;
+        }
+
+        .featured-img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .featured-body {
+            padding: 48px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-left: 4px solid var(--gold);
+        }
+
+        .featured-label {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--green);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 2px;
+            margin-bottom: 18px;
+            width: fit-content;
+        }
+
+        .featured-body h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.7rem;
+            color: var(--green);
+            line-height: 1.25;
+            margin-bottom: 16px;
+        }
+
+        .featured-body p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 24px;
+        }
+
+        .article-date {
+            font-size: 0.8rem;
+            color: #999;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .article-date i { margin-right: 6px; color: var(--gold); }
+
+        .news-section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--green);
+            margin-bottom: 32px;
+            padding-bottom: 14px;
+            border-bottom: 2px solid rgba(201,168,76,0.3);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            margin-bottom: 60px;
+        }
+
+        .news-card {
+            background: #fff;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 14px 44px rgba(0,0,0,0.12);
+        }
+
+        .news-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .news-card-body {
+            padding: 22px 20px;
+            border-top: 3px solid var(--gold);
+        }
+
+        .news-card-body .tag {
+            display: inline-block;
+            background: rgba(26,71,49,0.08);
+            color: var(--green);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 3px 8px;
+            border-radius: 2px;
+            margin-bottom: 10px;
+        }
+
+        .news-card-body h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            color: var(--green);
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .news-card-body p {
+            font-size: 0.88rem;
+            line-height: 1.7;
+            color: #666;
+            margin-bottom: 14px;
+        }
+
+        .news-card-body .date {
+            font-size: 0.76rem;
+            color: #aaa;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .announcements {
+            background: var(--green);
+            border-radius: 6px;
+            padding: 48px;
+        }
+
+        .announcements h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 28px;
+        }
+
+        .announcement-item {
+            display: flex;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .announcement-item:last-child { border-bottom: none; }
+        .announcement-item:first-child { padding-top: 0; }
+
+        .ann-date-box {
+            flex-shrink: 0;
+            width: 52px;
+            text-align: center;
+            background: rgba(201,168,76,0.15);
+            border: 1px solid rgba(201,168,76,0.4);
+            border-radius: 4px;
+            padding: 8px 4px;
+        }
+
+        .ann-month {
+            font-size: 0.6rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .ann-day {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #fff;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .ann-content h4 {
+            color: #fff;
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .ann-content p {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+         footer {
+            background: var(--green);
+            color: #fff;
+            padding: 60px 0 0;
+            margin-top: 80px;
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 32px 48px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-brand .logo { margin-bottom: 14px; display: inline-flex; }
+        .footer-brand p { font-size: 0.88rem; line-height: 1.8; opacity: 0.6; max-width: 260px; margin-top: 12px; }
+
+        .footer-col h4 {
+            font-size: 0.72rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col ul li a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
+        .footer-col ul li a:hover { color: var(--gold); }
+
+        .footer-col .contact-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; font-size: 0.88rem; opacity: 0.7; }
+        .footer-col .contact-item i { color: var(--gold); margin-top: 3px; font-size: 0.85rem; flex-shrink: 0; }
+
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .footer-bottom p { font-size: 0.8rem; opacity: 0.5; }
+
+        .page-footer {
+            background: var(--green);
+            color: #fff;
+            text-align: center;
+            padding: 28px;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .page-footer a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .footer-social { display: flex; gap: 14px; }
+        .footer-social a {
+            width: 36px; height: 36px; border-radius: 50%;
+            border: 1px solid rgba(201,168,76,0.4);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--gold); font-size: 0.85rem; text-decoration: none;
+            transition: background 0.2s;
+        }
+        .footer-social a:hover { background: rgba(201,168,76,0.15); }
+
+        @media (max-width: 900px) {
+            nav { padding: 14px 20px; }
+            .nav-links { display: none; }
+            .contact-layout { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .contact-form-wrap { padding: 32px 24px; }
+            .page-body { padding: 48px 20px 60px; }
+            .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">
+            <img src="Image/BinalonanLogo.png" alt="Binalonan Logo">
+            <span>Binalonan</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="news.html" class="active">News</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="page-hero">
+        <div class="hero-bg-img"></div>
+        <div class="hero-overlay"></div>
+        <div class="page-hero-content">
+            <div class="eyebrow">Stay Informed</div>
+            <h1>News &amp; <span>Updates</span></h1>
+            <div class="gold-line"></div>
+        </div>
+    </section>
+
+    <div class="page-body">
+
+        <div class="featured-article">
+            <img src="Image/foundation.jpg" alt="Foundation Day" class="featured-img">
+            <div class="featured-body">
+                <span class="featured-label">Featured Story</span>
+                <h2>Binalonan Foundation Day Celebration 2024</h2>
+                <p>The Municipality of Binalonan marks another year of progress and community pride with its annual Foundation Day celebration, featuring cultural performances, sports events, and thanksgiving activities.</p>
+                <span class="article-date"><i class="fas fa-calendar-alt"></i> December 15, 2024</span>
+            </div>
+        </div>
+
+        <h2 class="news-section-title">Latest News</h2>
+        <div class="news-grid">
+            <div class="news-card">
+                <img src="Image/driver.jpg" alt="Road Network">
+                <div class="news-card-body">
+                    <span class="tag">Infrastructure</span>
+                    <h3>New Road Network Completed</h3>
+                    <p>20 kilometers of new roads now serving Binalonan residents, improving connectivity across barangays.</p>
+                    <div class="date"><i class="fas fa-calendar-alt"></i> December 10, 2024</div>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="Image/chrismast.jpg" alt="Christmas Program">
+                <div class="news-card-body">
+                    <span class="tag">Community</span>
+                    <h3>Christmas Gift Giving Program</h3>
+                    <p>Thousands of families to receive holiday assistance packages as the LGU launches its annual gift-giving program.</p>
+                    <div class="date"><i class="fas fa-calendar-alt"></i> December 20, 2024</div>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="Image/Progress.jpg" alt="Industrial Park">
+                <div class="news-card-body">
+                    <span class="tag">Development</span>
+                    <h3>First Industrial Park in Eastern Pangasinan</h3>
+                    <p>Binalonan secures its place as a premier economic hub with the groundbreaking of its first industrial park.</p>
+                    <div class="date"><i class="fas fa-calendar-alt"></i> November 28, 2024</div>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="Image/Education.jpg" alt="Scholarships">
+                <div class="news-card-body">
+                    <span class="tag">Education</span>
+                    <h3>Scholarship Applications Now Open</h3>
+                    <p>Eligible students from Binalonan can now apply for the municipal scholarship program for the upcoming school year.</p>
+                    <div class="date"><i class="fas fa-calendar-alt"></i> November 15, 2024</div>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="Image/services.jpg" alt="Health">
+                <div class="news-card-body">
+                    <span class="tag">Health</span>
+                    <h3>Free Medical Mission this December</h3>
+                    <p>The Municipal Health Office conducts a free medical mission offering check-ups, medicines, and dental services.</p>
+                    <div class="date"><i class="fas fa-calendar-alt"></i> December 5, 2024</div>
+                </div>
+            </div>
+            <div class="news-card">
+                <img src="Image/people.jpg" alt="Senior Citizens">
+                <div class="news-card-body">
+                    <span class="tag">Social Welfare</span>
+                    <h3>Senior Citizens Receive Cash Assistance</h3>
+                    <p>Over 500 senior citizens in Binalonan receive their quarterly cash assistance under the OSCA program.</p>
+                    <div class="date"><i class="fas fa-calendar-alt"></i> October 30, 2024</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="announcements">
+            <h3><i class="fas fa-bullhorn" style="margin-right:12px;"></i>Announcements</h3>
+            <div class="announcement-item">
+                <div class="ann-date-box">
+                    <div class="ann-month">Dec</div>
+                    <div class="ann-day">22</div>
+                </div>
+                <div class="ann-content">
+                    <h4>Municipal Hall Holiday Hours</h4>
+                    <p>The Municipal Hall will be closed December 24–26 and December 31 – January 1 for the holidays.</p>
+                </div>
+            </div>
+            <div class="announcement-item">
+                <div class="ann-date-box">
+                    <div class="ann-month">Jan</div>
+                    <div class="ann-day">07</div>
+                </div>
+                <div class="ann-content">
+                    <h4>Business Permit Renewal Season Opens</h4>
+                    <p>All business owners are reminded to renew their permits starting January 2025 to avoid penalties.</p>
+                </div>
+            </div>
+            <div class="announcement-item">
+                <div class="ann-date-box">
+                    <div class="ann-month">Jan</div>
+                    <div class="ann-day">15</div>
+                </div>
+                <div class="ann-content">
+                    <h4>Barangay Assembly Meetings</h4>
+                    <p>All 46 barangays of Binalonan are scheduled to hold their quarterly assembly meetings this January.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <img src="Image/BinalonanLogo.png" alt="Binalonan Logo">
+                    <span>Binalonan</span>
+                </a>
+                <p>Municipality of Binalonan, Pangasinan — serving our community with excellence, heritage, and progress since 1874.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navigate</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Mayor's Office</a></li>
+                    <li><a href="#">Barangays</a></li>
+                    <li><a href="#">Transparency Seal</a></li>
+                    <li><a href="#">Citizen's Charter</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>Municipal Hall, Poblacion, Binalonan, Pangasinan 2433</span></div>
+                <div class="contact-item"><i class="fas fa-phone-alt"></i><span>(075) 123-4567</span></div>
+                <div class="contact-item"><i class="fas fa-envelope"></i><span>info@binalonan.gov.ph</span></div>
+            </div>
+        </div>
+    </footer>
+    <div class="page-footer">
+        &copy; 2026 Municipality of Binalonan &nbsp;|&nbsp;
+        <a href="index.html">Back to Main Site</a>
+        &nbsp;|&nbsp;
+        <div class="footer-social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            this.style.display = 'none';
+            document.getElementById('successMsg').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
